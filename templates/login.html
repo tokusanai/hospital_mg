@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログイン画面</title>
+</head>
+<body>
+    <h1>ログイン画面</h1>
+    {% if error != null%}
+    <p style = "color:red">{{error}}</p>
+    {%endif%}
+    {% if msg != null%}
+     <p style = "color:bule">{{msg}}</p>
+     {% endif %}
+    <form action="{{url_for('login')}}" method="post">
+    E-mail: <input type ="text" name = "mail"><br>
+    pw:     <input type ="password" name = "pw"><br>
+    <button type="submit">ログイン</button>
+    </form>
+    <a href="{{url_for('RegUser_form')}}">新規登録はこちら</a>
+</body>
+</html>

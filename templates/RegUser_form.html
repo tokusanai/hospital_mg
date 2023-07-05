@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アカウント新規登録</title>
+</head>
+<body>
+    <h1>新規登録画面</h1>
+    {% if error != null %}
+    <p style = "color:red">{{error}}</p>
+    {% endif %}
+    <form action="{{url_for('RegUser_conf')}}" method="post">
+        E-mail: <input type ="mail" name = "mail"><br>
+        pw :    <input type ="password" name = "pw"><br>
+        名前:   <input type ="text" name = "name"><br>
+        性別:<br>
+        男<input type="radio"  name="gender" value="男" checked = 'checked' >
+        女<input type="radio"  name="gender" value="女">
+        生年月日：
+        <input type ="text" name = "year_B" maxlength="4">
+        年
+        <select name = "month_B">
+            {%for month_B in range(1, 13)%}
+            <option value = '{{month_B}}'>{{month_B}}</option>
+            {% endfor %}
+        </select>
+        月
+        <select name = "day_B">
+            {%for day_B in range(1, 32)%}
+            <option value = '{{day_B}}'>{{day_B}}</option>
+            {% endfor %}
+        </select>
+        日<br>
+        <a href="{{url_for('loginTop')}}">戻る</a>
+        <button type="submit">登録</button>
+        </form>
+</body>
+</html>

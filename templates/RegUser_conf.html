@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アカウント新規登録確認画面</title>
+</head>
+<body>
+    <h1>以下の内容で登録しますか</h1>
+    <p>e-mail:{{mail}}</p><br>
+    <p>pw:*********</p><br>
+    <p>名前:{{name}}</p><br>
+    <p>性別:{{gender}}</p><br>
+    <p>生年月日:{{birthday}}</p><br>
+    <a href="{{url_for('RegUser_form')}}">戻る</a>
+   <form action="{{url_for('RegUser_exe')}}" method="post">
+        <!-- 他のフォーム要素 -->
+        <input type="hidden" id="mail" name="mail" value = "{{mail}}">
+        <input type="hidden" id="pw" name="pw" value = "{{pw}}">
+        <input type="hidden" id="name" name="name" value = "{{name}}">
+        <input type="hidden" id="gender" name="gender" value = "{{gender}}">
+        <input type="hidden" id="birthday" name="birthday" value = "{{birthday}}">
+        <input type="submit" value="登録" />
+   </form>    
+</body>
+</html>

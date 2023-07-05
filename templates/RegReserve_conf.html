@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='/css/register.css')}}">
+{% endblock %}
+
+{% block content %}
+<body>
+  <h1>予約登録確認</h1>
+  <p>{{year}}年{{month}}月{{day}}日  {{time}}</p>
+  <p>症状:{{symptoms}}</p>
+  <p>備考:{{remarks}}</p>
+  <a href="{{url_for('sample_register')}}">戻る</a>
+  <form action="{{url_for('RegReserve_exe')}}" method="post">
+       <!-- 他のフォーム要素 -->
+       <input type="hidden" id="year" name="year" value = "{{year}}">
+       <input type="hidden" id="month" name="month" value = "{{month}}">
+       <input type="hidden" id="day" name="day" value = "{{day}}">
+       <input type="hidden" id="time" name="time" value = "{{time}}">
+       <input type="hidden" id="symptoms" name="symptoms" value = "{{symptoms}}">
+       <input type="hidden" id="remarks" name="remarks" value = "{{remarks}}">
+       <input type="submit" value="登録" />
+  </form>
+</body>
+{% endblock %}
+ 
+
+  

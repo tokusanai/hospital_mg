@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='/css/register.css')}}">
+{% endblock %}
+
+{% block content %}
+  <h1>予約登録</h1>
+  {% if error != null %}
+    <p style = "color:red">{{error}}</p>
+  {% endif %}
+  {% if msg != null %}
+  <p style = "color:bule">{{msg}}</p>
+  {% endif %}
+  <form action="{{url_for('RegReserve_conf')}}" method="post">
+    <p>
+      <select name="year">
+      <option value=2023>2023</option>
+      <option value=2024>2024</option>
+      <option value=2025>2025</option>
+      </select>年
+
+        <select name="month">
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5</option>
+        <option value=6>6</option>
+        <option value=7>7</option>
+        <option value=8>8</option>
+        <option value=9>9</option>
+        <option value=10>10</option>
+        <option value=11>11</option>
+        <option value=12>12</option>
+        </select>月
+        
+          <select name="day">
+          <option value=1>1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+          <option value=4>4</option>
+          <option value=5>5</option>
+          </select>日
+            
+            <select name="time">
+            <option value="09:00~9:30">09:00~9:30</option>
+            <option value="09:30~10:00">09:30~10:00</option>
+            <option value="10:00~10:30">10:00~10:30</option>
+            <option value="10:30~11:00">10:30~11:00</option>
+            <option value="11:30~12:00">11:30~12:00</option>
+            </select>
+          </p>   
+            <p>
+              症状
+              <select name="symptoms">
+              <option value="鼻水・鼻血">鼻水・鼻血</option>
+              <option value="鼻づまり">鼻づまり</option>
+              <option value="耳鳴り">耳鳴り</option>
+              <option value="のどの痛み">のどの痛み</option>
+              </select></p> 
+    <p>
+    <textarea name="remarks" rows="3" cols="80" 
+    placeholder="備考欄"></textarea>
+    </p>
+    <button type="submit">予約</button>
+  </form>
+{% endblock %}
